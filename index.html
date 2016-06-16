@@ -1,14 +1,122 @@
 <html>
     <head>
+        <link href="css/jqvmap.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <p>Notice: No data is being transmitted to and from a server. All input handling is client-side.</p>
+
+
+        <form id="demo" method="get">
+
+            <!-- Names -->
+            <div>
+                <label>Please enter the Mother's full name here: </label>
+                <input type="text" name="mother-name" \>
+            </div>
+
+            <div>
+                <label>Please enter the Father's full name here: </label>
+                <input type="text" name="father-name" />
+            </div>
+
+            <div>
+                <label>Please enter the Child's full name here: </label>
+                <input type="text" name="child-name"/>
+            </div>
+
+            <!-- Custody -->
+            <div>
+                <label>What type of custody will the Mother have?</label>
+                <select name="mother-custody">
+                    <option value="Sole" >Sole</option>
+                    <option value="Primary">Primary</option>
+                    <option value="Shared">Shared</option>
+                </select>
+            </div>
+            <div>
+                <label>For how many days per week?</label>
+                <input type="text" name="mother-custody-days" />
+            </div>
+
+            <div>
+                <label>What type of custody will the Father have?</label>
+                <select name="father-custody">
+                    <option value="Sole" >Sole</option>
+                    <option value="Primary">Primary</option>
+                    <option value="Shared">Shared</option>
+                </select>
+            </div>
+            <div>
+                <label>For how many days per week?</label>
+                <input type="text" name="father-custody-days" />
+            </div>
+
+            <!-- Relocation -->
+            <div>
+                <label>In the case of relocation of one or more Parent, at what distance (either in miles/hours) would both Parents consider to be far enough to reconsider the Child's permanent residence?</label>
+                <span>
+                    <input type="text" name="relocation-distance" />
+                    <select name="relocation-distance-type">
+                        <option value="miles">miles</option>
+                        <option value="hours">hours</option>
+                    </select>
+                </span>
+            </div>
+
+            <!-- Big Ticket Item -->
+            <div>
+                <label>How much does an item for the Child need to be worth in order to be considered to be a Big Ticket item (i.e. Laptop, automobile, etc.) ?</label>
+                <span>
+                    Greater than $
+                    <input type="text" name="big-ticket" />
+                </span>
+            </div>
+
+            <!-- Medical/Dental/Vision -->
+            <div>
+                <label>What % of medical/dental/vision costs will each Parent cover?</label>
+                <span>
+                    Mother: <input type="text" name="mother-medical" />%
+                </span>
+                <span>
+                    Father: <input type="text" name="father-medical" />%
+                </span>
+            </div>
+
+            <div>
+                <label>In the case that a medical/dental/optical device/tool was damaged or broken and requires repair and/or replacement, how will the costs be distributed?</label>
+                <select name="replace-device">
+                    <option value="shared evenly by both Parents.">shared evenly by both Parents.</option>
+                    <option value="paid by the custodial Parent at the time of the loss or breakage.">paid by the custodial Parent at the time of the loss or breakage.</option>
+                </select>
+            </div>
+
+            <!-- Life Insurance -->
+            <div>
+                <label>How much life insurance (with the Child as the sole beneficiary) will the Parents agree to purchase?</label>
+                $<input name="life-insurance" />
+            </div>
+
+            <!-- State -->
+            <div>
+                <label>Which state in the U.S. will this agreement be made?</label>
+
+                <!-- TODO: all states + dc populated programmatically + autocomplete? -->
+                <select name="states" id="states">
+                </select>
+            </div>
+
+            <!-- Map -->
+            <div id="vmap" style="width: 600px; height: 400px;"></div>
+
+            <button type="submit">Show Agreement</button>
+        </form>
+
         <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
         <script type="text/javascript" src="js/jspdf.min.js"></script>
         <script type="text/javascript" src="js/basic_agreement.js"></script>
-    </head>
-    <body>
-        <form id="demo" method="get">
-            <label>Please enter your name here: </label>
-            <input type="text" name="name" \n>
-            <button type="submit">Show Agreement</button> 
-        </form>
+        <script src="js/jquery.vmap.min.js"></script>
+        <script src="js/jquery.vmap.usa.js"></script>
     </body>
 </html>
